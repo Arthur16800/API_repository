@@ -15,17 +15,18 @@ module.exports = class controllerNumbers {
     }
   }
 
+  //Verificando se é primo 
   static async checkPrimo(req, res) {
     const { num } = req.body;
     if (num == 1) {
-      res.status(200).json({ resultado: "Não é um numero primo" });
+      return res.status(200).json({ resultado: "Não é um numero primo" });
     }
     if (typeof num !== "number") {
-      res.status(400).json({ message: "Dados inválidos" });
+      return res.status(400).json({ message: "Dados inválidos" });
     }
     for (let i = 2; i <= Math.sqrt(num); i++) {
       if (num % i === 0) {
-        res.status(200).json({ resultado: "Não é um numero primo" });
+        return res.status(200).json({ resultado: "Não é um numero primo" });
       }
     }
     return res.status(200).json({ resultado: "É um número primo" });
