@@ -3,6 +3,10 @@ module.exports = class controllerNumbers {
     // req = requisição ; res = resposta
     const { numero } = req.body; // esse body é executado no postman, mais para frente sera no html(ex:formulario)
 
+    if (typeof numero !== "number") {
+      res.status(400).json({ message: "Dados inválidos" });
+    }
+
     if (numero % 2 == 0) {
       return res.status(200).json({ message: "Número par!" });
     }
@@ -11,6 +15,10 @@ module.exports = class controllerNumbers {
 
   static async checkPrimo(req, res) {
     const {numero} = req.body;
+
+    if (typeof num !== "number") {
+      res.status(400).json({ message: "Dados inválidos" });
+    }
 
     if(numero <= 1){
         return res.status(200).json({message: "Não é primo"});
