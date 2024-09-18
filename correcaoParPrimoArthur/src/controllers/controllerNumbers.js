@@ -16,7 +16,7 @@ module.exports = class controllerNumbers {
   static async checkPrimo(req, res) {
     const {numero} = req.body;
 
-    if (typeof num !== "number") {
+    if (typeof numero !== "number") {
       res.status(400).json({ message: "Dados inválidos" });
     }
 
